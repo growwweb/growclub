@@ -13,4 +13,4 @@ COPY . .
 EXPOSE $PORT
 
 # Запускаем бота
-CMD ["python", "webhook.py"]
+CMD ["python", "main.py"]
