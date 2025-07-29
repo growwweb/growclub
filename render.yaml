@@ -1,9 +1,8 @@
 services:
   - type: web
-    name: my-web-service
-    runtime: python
-    python_version: 3.11
-    build_command: pip install -r requirements.txt
-    start_command: python main.py
+    name: telegram-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python webhook.py
 build:
   pythonVersion: 3.11.9
