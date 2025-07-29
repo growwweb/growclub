@@ -7,10 +7,18 @@ from aiogram.utils import executor
 from dotenv import load_dotenv
 
 load_dotenv()
-bot = Bot(token=os.getenv("BOT_TOKEN"))
-dp = Dispatcher(bot, storage=MemoryStorage())
+
+API_TOKEN = os.getenv("BOT_TOKEN")
+WEBHOOK_HOST = os.getenv("WEBHOOK_HOST")  # Например: https://ваш_сервис_на_render.com
+WEBHOOK_PATH = f'/webhook/{API_TOKEN}'
+WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
 ADMIN_CHAT_ID = int(os.getenv("ADMIN_CHAT_ID"))
+
+bot = Bot(token=os.getenv("BOT_TOKEN"))
+storage = MemoryStorage()
+dp = Dispatcher(bot, storage=MemoryStorage())
+
 
 # Шаги регистрации
 class Form(StatesGroup):
